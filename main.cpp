@@ -29,6 +29,7 @@ int main()
 
     //initialization player and list of the platforms
     Player player(350, 250, 100, 100);
+    std::vector <Tear> tears;
    
 
     //it has to rendering in random way on each level
@@ -49,7 +50,7 @@ int main()
                 quit = true;
             }
             //We are handling player movement and for now shooting with the tears
-            player.handleEvent(e);
+            player.handleEvent(e, tears);
 
 
 
@@ -65,14 +66,18 @@ int main()
         }
 
         player.update(directionList);
+        for (auto& tear : tears) tear.update();
 
         //screen cleaning
         SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
         SDL_RenderClear(ren);
 
-        //player new position render
+        //Object rendering
         for (auto& obj : objects) obj.render(ren);
+        //Player rendering
         player.render(ren);
+        //Tears rendering
+        for (auto& tear : tears) tear.render(ren);
 
         //screen update
         SDL_RenderPresent(ren);

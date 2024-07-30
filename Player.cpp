@@ -1,11 +1,12 @@
 ﻿#include "Player.h"
 #include "lib.h"
+#include "Tear.h"
 
 
 
 Player::Player(int x, int y, int w, int h) : rect{ x, y, w, h }, xVelocity(0), yVelocity(0) {}
 
-void Player::handleEvent(SDL_Event& e) {
+void Player::handleEvent(SDL_Event& e, std::vector<Tear>& tears) {
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
 
 		switch (e.key.keysym.sym) {
@@ -23,6 +24,19 @@ void Player::handleEvent(SDL_Event& e) {
 		case SDLK_s:  yVelocity -= playerSpeed; break;
 		case SDLK_d: xVelocity -= playerSpeed; break;
 		case SDLK_a:  xVelocity += playerSpeed; break;
+		}
+	}
+
+	if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
+		switch (e.key.keysym.sym) {
+		case SDLK_UP:
+			tears.push_back(Tear(rect.x, rect.y, rect.w, rect.h, 0, -tearSpeed)); break;
+		case SDLK_DOWN:
+			tears.push_back(Tear(rect.x, rect.y, rect.w, rect.h, 0, tearSpeed)); break;
+		case SDLK_RIGHT:
+			tears.push_back(Tear(rect.x, rect.y, rect.w, rect.h, tearSpeed, 0)); break;
+		case SDLK_LEFT:
+			tears.push_back(Tear(rect.x, rect.y, rect.w, rect.h, -tearSpeed, 0)); break;
 		}
 	}
 
