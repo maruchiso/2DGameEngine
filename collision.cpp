@@ -40,3 +40,32 @@ char directionOfCollision(Player& p, Object& o, bool col) {
 	else if (minValue == up) return 'U';
 	else return 'D';
 }
+
+void eraseTearIfCollision(std::vector<Tear>& tears, std::vector<Object>& objects) {
+	
+	for (auto it = tears.begin(); it != tears.end(); ){
+		bool paramIsCollision = false;
+		for (Object obj : objects) {
+			SDL_Rect object, tear;
+			object = obj.getObject();
+			tear = it->getTear();
+			if ((object.x + object.w >= tear.x &&
+				tear.x + tear.w >= object.x &&
+				object.y + object.h >= tear.y &&
+				tear.y + tear.h >= object.y) || (
+					tear.x < 0 || tear.x + tear.w > WINDOW_WIDTH ||
+					tear.y < 0 || tear.y + tear.h > WINDOW_HEIGHT)) {
+				std::cout << "KOLIZJA" << std::endl;
+				paramIsCollision = true;
+				break;
+			}
+		}
+
+		if (paramIsCollision) {
+			it = tears.erase(it);
+		}
+		else {
+			it++;
+		}
+	}
+}

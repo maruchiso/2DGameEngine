@@ -1,6 +1,2 @@
-﻿  Object.cpp
-  Player.cpp
-  collision.cpp
-  main.cpp
-  Generating Code...
-  2DGameEngine.vcxproj -> C:\Users\szymc\Desktop\2DGameEngine\x64\Debug\2DGameEngine.exe
+﻿  collision.cpp
+  2DGameEngine.vcxproj -> C:\Users\szymc\Desktop\bruh\2DGameEngine\x64\Debug\2DGameEngine.exe

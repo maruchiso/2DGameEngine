@@ -62,10 +62,11 @@ int main()
         for (auto& obj : objects) {
             direction = directionOfCollision(player, obj, isCollision(player, obj));
             directionList.push_back(direction);
-            std::cout << direction << std::endl;
+            //std::cout << direction << std::endl;
         }
 
         player.update(directionList);
+        eraseTearIfCollision(tears, objects);
         for (auto& tear : tears) tear.update();
 
         //screen cleaning
