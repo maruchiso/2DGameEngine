@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="collision.cpp" />
+    <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="collision.h" />
     <ClInclude Include="const.h" />
     <ClInclude Include="dynamic_lib.h" />
+    <ClInclude Include="HealthBar.h" />
     <ClInclude Include="lib.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />

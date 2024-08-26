@@ -15,6 +15,8 @@ public:
 	void update(std::vector<char> directionList);
 	void render(SDL_Renderer* ren);
 	SDL_Rect getPlayer();
+	int getHP();
+	int changeHP();
 
 
 
@@ -23,6 +25,7 @@ private:
 	int xVelocity, yVelocity;
 	int playerSpeed = 10;
 	int tearSpeed = 20;
+	int hp = 100;
 
 
 

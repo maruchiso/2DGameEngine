@@ -27,8 +27,12 @@ int main()
     SDL_Event e;
     bool quit = false;
 
+//INIT BLOCK
     //initialization player and list of the platforms
     Player player(350, 250, 100, 100);
+    //there i will initialize player UI
+    HealthBar healthbar(5, 5, 200, 20, player.getHP());
+    //player features initialize
     std::vector <Tear> tears;
    
 
@@ -39,7 +43,6 @@ int main()
     };
 
     
-    //Object object(700, 400, 100, 150);
 
     while (!quit) {
         while (SDL_PollEvent(&e)) {
@@ -51,10 +54,8 @@ int main()
             }
             //We are handling player movement and for now shooting with the tears
             player.handleEvent(e, tears);
-
-
-
         }
+
         //TODO: tablica kierunków wilekoœci ile jest obiektów (vector.size()) i na podstawie tablicy sprawdzaæ 
         char direction = 'N';
         std::vector<char> directionList;
@@ -79,6 +80,8 @@ int main()
         player.render(ren);
         //Tears rendering
         for (auto& tear : tears) tear.render(ren);
+        //UI renderin
+        healthbar.render(ren);
 
         //screen update
         SDL_RenderPresent(ren);

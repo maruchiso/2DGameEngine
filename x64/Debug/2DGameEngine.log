@@ -1,2 +1,7 @@
-﻿  collision.cpp
+﻿  HealthBar.cpp
+  Object.cpp
+  Player.cpp
+  Tear.cpp
+  main.cpp
+  Generating Code...
   2DGameEngine.vcxproj -> C:\Users\szymc\Desktop\bruh\2DGameEngine\x64\Debug\2DGameEngine.exe

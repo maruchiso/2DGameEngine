@@ -69,3 +69,11 @@ void eraseTearIfCollision(std::vector<Tear>& tears, std::vector<Object>& objects
 		}
 	}
 }
+
+//TODO:
+//I have to add to object param that describes if it:
+//hp++, hp--, or only collision
+
+//Generate random room
+//generate random map
+//Opponents

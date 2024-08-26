@@ -75,6 +75,8 @@ void Player::update(std::vector<char> directionList) {
 	if (rect.y < 0) rect.y = 0;
 	if (rect.y + rect.h > WINDOW_HEIGHT) rect.y = WINDOW_HEIGHT - rect.h;
 
+	
+
 }
 
 
@@ -87,4 +89,12 @@ void Player::render(SDL_Renderer* ren) {
 
 SDL_Rect Player::getPlayer() {
 	return rect;
+}
+
+int Player::getHP() {
+	return hp;
+}
+
+int Player::changeHP() {
+	return 0;
 }
